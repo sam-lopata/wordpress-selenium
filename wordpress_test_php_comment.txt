@@ -1,0 +1,556 @@
+_Admin_Includes Comment
+ [x] Must match date and author
+ [x] Default value of timezone should be blog
+ [x] Should respect timezone blog
+ [x] Should respect timezone gmt
+ [x] Invalid timezone should fall back on blog
+
+_Comment
+ [x] Wp update comment
+ [x] Update comment from privileged user by privileged user
+ [x] Update comment from unprivileged user by privileged user
+ [x] Wp update comment updates comment type
+ [x] Wp update comment updates comment meta
+ [x] Wp update comment updates user id
+ [x] Wp update comment with no post id
+ [x] Wp update comment returns false for invalid comment or post id
+ [x] Wp update comment is wp error
+ [x] Get approved comments
+ [x] Get approved comments with post id 0 should return empty array
+ [x] Get cancel comment reply link with data set "text as empty string, a valid post ID and an approved comment"
+ [x] Get cancel comment reply link with data set "text as a custom string, a valid post ID and an approved comment"
+ [x] Get cancel comment reply link with data set "text as empty string, a valid WP_Post object and an approved comment"
+ [x] Get cancel comment reply link with data set "text as a custom string, a valid WP_Post object and an approved comment"
+ [x] Get cancel comment reply link with data set "text as empty string, an invalid post and an approved comment"
+ [x] Get cancel comment reply link with data set "text as a custom string, a valid post, but no replytocom"
+ [ ] Should output the author of an approved comment
+ [x] Should allow reply to an approved comment with data set "a post ID"
+ [x] Should allow reply to an approved comment with data set "a WP_Post object"
+ [x] Should return empty string with data set "an unapproved comment and a non-existent post ID"
+ [x] Should return empty string with data set "an approved comment and a non-existent post ID"
+ [x] Should not output the author with data set "an unapproved parent comment (ID)"
+ [x] Should not output the author with data set "an approved parent comment on another post (ID)"
+ [x] Should not output the author with data set "an unapproved parent comment on another post (ID)"
+ [x] Should not output the author with data set "a parent comment ID that cannot be cast to an integer"
+ [x] Should not output the author with data set "an unapproved parent comment (WP_Post)"
+ [x] Should not output the author with data set "an approved parent comment on another post (WP_Post)"
+ [x] Should not output the author with data set "an unapproved parent comment on another post (WP_Post)"
+ [x] Should not output the author with data set "a parent comment WP_Post that cannot be cast to an integer"
+ [x] Should not output the author with data set "an unapproved comment and a non-existent post ID"
+ [x] Should not output the author with data set "an approved comment and a non-existent post ID"
+ [x] Should not allow reply with data set "an unapproved parent comment (ID)"
+ [x] Should not allow reply with data set "an approved parent comment on another post (ID)"
+ [x] Should not allow reply with data set "an unapproved parent comment on another post (ID)"
+ [x] Should not allow reply with data set "a parent comment ID that cannot be cast to an integer"
+ [x] Should not allow reply with data set "an unapproved parent comment (WP_Post)"
+ [x] Should not allow reply with data set "an approved parent comment on another post (WP_Post)"
+ [x] Should not allow reply with data set "an unapproved parent comment on another post (WP_Post)"
+ [x] Should not allow reply with data set "a parent comment WP_Post that cannot be cast to an integer"
+ [x] Get comment reply id with data set "no comment ID set ($_GET["replytocom"])"
+ [x] Get comment reply id with data set "a non-numeric comment ID"
+ [x] Get comment reply id with data set "a non-existent comment ID"
+ [x] Get comment reply id with data set "an unapproved comment"
+ [x] Get comment reply id with data set "a post that does not match the parent"
+ [x] Get comment reply id with data set "an approved comment and the correct post ID"
+ [x] Get comment reply id with data set "an approved comment and the correct WP_Post object"
+ [x] Wp new comment respects dates
+ [x] Wp new comment respects author ip
+ [x] Wp new comment respects author ip empty string
+ [x] Wp new comment respects comment agent
+ [x] Wp new comment should trim provided comment agent to 254 chars
+ [x] Wp new comment respects comment agent empty string
+ [x] Wp new comment respects comment field lengths
+ [x] Wp new comment sends all expected parameters to preprocess comment filter
+ [x] Wp notify moderator should not throw notice when post author is 0
+ [x] Wp new comment notify postauthor should send email when comment is approved
+ [x] Wp new comment notify postauthor should not send email when comment is unapproved
+ [x] Wp new comment notify postauthor should not send email when comment has been marked as spam
+ [x] Wp new comment notify postauthor should not send email when comment has been trashed
+ [x] Wp new comment notify postauthor content should include link to parent
+ [x] Wp new comment notify moderator content should include link to parent
+ [x] Wp new comment with meta
+ [x] Wp comment get children should fill children
+ [x] Post properties should be lazyloaded
+ [x] Wp notify moderator filter moderation notify option true filter false
+ [x] Wp notify moderator filter moderation notify option false filter true
+ [x] Wp notify post author filter comments notify option true filter false
+ [x] Wp notify post author filter comments notify option false filter true
+ [x] Close comments for old post
+ [x] Close comments for old post undated draft
+ [x] Wp update comment author id and agent
+ [x] Wp get comment fields max lengths
+ [x] Update should invalidate comment cache
+ [x] Trash should invalidate comment cache
+ [x] Untrash should invalidate comment cache
+ [x] Spam should invalidate comment cache
+ [x] Unspam should invalidate comment cache
+
+_Comment_Check Comment
+ [x] Should return true when comment previously approved is disabled
+ [x] Should return false when comment previously approved is enabled and author does not have approved comment
+ [x] Should return true when comment previously approved is enabled and author has approved comment
+ [x] Should return false when content matches moderation keys
+ [x] Should return false when content with non latin words matches moderation keys
+ [x] Should return true when content does not match moderation keys
+ [x] Should return false when link count exceeds comment max length setting
+ [x] Should return true when link count does not exceed comment max length setting
+ [x] Should return true when comment previously approved is enabled and user has previously approved comments with different email
+ [x] Should return false when comment previously approved is enabled and user does not have a previously approved comment with any email
+
+_Comment_Comment Form
+ [x] Default markup for submit button and wrapper
+ [x] Custom submit button
+ [x] Custom submit field
+ [x] Submit button and submit field should fall back on defaults when filtered defaults do not contain the keys
+ [x] Fields should include cookies consent
+ [x] Aria describedby email notes should not be added if no email notes
+ [x] When thread comments enabled
+ [x] When thread comments disabled
+ [x] Comment form should not display for global post when called with invalid id
+ [x] Comment form should display for global post with falsey post id
+ [x] Comment form should display for specified post when passed a valid post id
+
+_Comment_Comment Time
+ [x] Should output the same value that get comment time returns with data set "an empty format"
+ [x] Should output the same value that get comment time returns with data set "a PHP date format"
+ [x] Should default to the global comment when comment id is not provided
+ [x] Should output an empty string when global comment is not set and comment id is not provided
+
+_Comment_Comments Open
+ [x] Post does not exist
+ [x] Post exist status open
+ [x] Post exist status closed
+
+_Comment_Comments Template
+ [x] Should respect comment order asc when default comments page is newest
+ [x] Should respect comment order desc when default comments page is newest
+ [x] Should respect comment order asc when default comments page is oldest
+ [x] Should respect comment order desc when default comments page is oldest
+ [x] Should respect comment order asc when default comments page is newest on subsequent pages
+ [x] Should respect comment order desc when default comments page is newest on subsequent pages
+ [x] Should respect comment order asc when default comments page is oldest on subsequent pages
+ [x] Should respect comment order desc when default comments page is oldest on subsequent pages
+ [x] Last page of comments should be full when default comment page is newest
+ [x] First page of comments should have remainder when default comments page is newest
+ [x] Comment permalinks should be correct when using default display callback with default comment page oldest
+ [x] Comment permalinks should be correct when using default display callback with default comment page newest
+ [x] Query offset should not include unapproved comments
+ [x] Query offset should include unapproved comments
+ [x] Comments list should include just posted unapproved comment
+ [x] Hierarchy should be ignored when threading is disabled
+ [x] Pagination calculation should ignore comment hierarchy when threading is disabled
+ [x] Comments template top level query args with data set #0
+ [x] Comments template top level query args with data set #1
+ [x] Comments template top level query args with data set #2
+ [x] Comments template top level query args with data set #3
+
+_Comment_Date Query
+ [x] Year
+
+_Comment_Get Comment Author Email Link
+ [x] Global comment with default parameters
+ [x] All parameters
+ [x] All parameters with global comment
+ [x] Linktext
+ [x] Before
+ [x] After
+ [x] Comment param should override global
+
+_Comment_Get Comment Author Url
+ [x] Comment author url passes correct comment id
+
+_Comment_Get Comment Author Url Link
+ [x] No comment
+ [x] Global comment
+ [x] Comment arg
+ [x] Linktext
+ [x] Before
+ [x] After
+ [x] Before after
+
+_Comment_Get Comment Class
+ [x] Should accept comment id
+ [x] Should accept comment object
+ [x] Should append single class
+ [x] Should append array of classes
+ [x] Should return an empty array for invalid comment id
+
+_Comment_Get Comment Count
+ [x] Get comment count
+ [x] Get comment count approved
+ [x] Get comment count awaiting
+ [x] Get comment count spam
+ [x] Get comment count trash
+ [x] Get comment count post trashed
+ [x] Get comment count validate cache comment deleted
+ [x] Get comment count validate cache post deleted
+ [x] Get comment count validate cache comment status
+
+_Comment_Get Comment Excerpt
+ [x] Get comment excerpt
+ [x] Get comment excerpt filtered
+
+_Comment_Get Comment Link
+ [x] Default comments page newest default page should have cpage
+ [x] Default comments page newest middle page should have cpage
+ [x] Default comments page newest last page should have cpage
+ [x] Default comments page oldest default page should not have cpage
+ [x] Default comments page oldest middle page should have cpage
+ [x] Default comments page oldest last page should have cpage
+ [x] Should not contain comment page 1 when pagination is disabled
+
+_Comment_Get Comment Reply Link
+ [x] Should return null when max depth is less than depth
+ [x] Should return null when default max depth is less than depth
+ [x] Get comment reply link should include post permalink
+ [x] Should return null when depth less than max depth and comment null and no current global comment
+
+_Comment_Get Comments Pages Count
+ [x] Empty
+ [x] Threaded comments
+ [x] Option thread comments
+ [x] Wp query comments per page
+ [x] Max num comment pages
+
+_Comment_Get Last Comment Modified
+ [x] No comments
+ [x] Default timezone
+ [x] Server timezone
+ [x] Blog timezone
+ [x] Gmt timezone
+ [x] Unknown timezone
+ [x] Data is cached
+ [x] Cache is cleared
+ [x] Cache is cleared when comment is trashed
+
+_Comment_Get Page Of Comment
+ [x] Last comment
+ [x] Type pings
+ [x] Subsequent calls should hit cache
+ [x] Cache hits should be sensitive to comment type
+ [x] Cache should be invalidated when comment is approved
+ [x] Cache should be invalidated when comment is deleted
+ [x] Cache should be invalidated when comment is spammed
+ [x] Cache should be invalidated when older comment is published
+ [x] Query should be limited to comments on the proper post
+ [x] Only top level comments should be included in older count
+ [x] Comments per page option should be fallback when query var is not available
+ [x] Should ignore comment order
+ [x] Should ignore default comment page
+ [x] Page number when unapproved comments are included for current commenter
+ [x] Page number when unapproved comments are included for current user
+
+_Comment_Is Avatar Comment Type
+ [x] Function with data set #0
+ [x] Function with data set #1
+ [x] Function with data set #2
+ [x] Function with data set #3
+ [x] Function should be filterable
+
+_Comment_Meta Cache
+ [x] Update comment meta cache should default to true
+ [x] Update comment meta cache true
+ [x] Update comment meta cache false
+ [x] Comment meta should be lazy loaded for all comments in comments template
+ [x] Comment meta should be lazy loaded in comment feed queries
+ [x] Comment meta should be lazy loaded in single post comment feed queries
+ [x] Add metadata sets comments last changed
+ [x] Update metadata sets comments last changed
+ [x] Delete metadata sets comments last changed
+
+_Comment_Pings Open
+ [x] Post does not exist
+ [x] Post exist status open
+ [x] Post exist status closed
+
+_Comment_Query
+ [x] Query
+ [x] Query post id 0
+ [x] Query type empty string
+ [x] Query type comment
+ [x] Query type pingback
+ [x] Query type trackback
+ [x] Query type pings
+ [x] Type array comments and custom
+ [x] Type not  in array custom
+ [x] Type  in array and not type array custom
+ [x] Type array and type  not in array custom
+ [x] Type  not in custom
+ [x] Type array comments and pings
+ [x] Type array comment pings
+ [x] Type array pingback
+ [x] Type array custom pingpack
+ [x] Type array pings
+ [x] Type status approved array comment pings
+ [x] Type array trackback
+ [x] Type array custom trackback
+ [x] Type array pings approved
+ [x] Status empty string
+ [x] Status hold
+ [x] Status approve
+ [x] Status custom
+ [x] Status all
+ [x] Status default to all
+ [x] Status comma any
+ [x] Status comma separated
+ [x] Status array
+ [x] Multiple post fields should all be respected
+ [x] Get comments for post
+ [x] Orderby meta
+ [x] Orderby clause key
+ [x] Orderby clause key as secondary sort
+ [x] Orderby more than one clause key
+ [x] Meta query should work with comment  in
+ [x] Meta query should work with comment  not in
+ [x] Get comments by user
+ [x] Get comments by author url
+ [x] Fields ids query
+ [x] Fields comment  in
+ [x] Fields comment  not in
+ [x] Fields post  in
+ [x] Fields post  not in
+ [x] Fields post author  in
+ [x] Fields post author  not in
+ [x] Fields author  in
+ [x] Fields author  not in
+ [x] Get comments with status all
+ [x] Get comments with include unapproved user id
+ [x] Get comments with include unapproved user id array
+ [x] Get comments with include unapproved user id comma separated
+ [x] Get comments with include unapproved author email
+ [x] Get comments with include unapproved mixed array
+ [x] Get comments with include unapproved mixed comma separated
+ [x] Search
+ [x] Search false should be ignored
+ [x] Search null should be ignored
+ [x] Search empty string should be ignored
+ [x] Search int 0 should not be ignored
+ [x] Search string 0 should not be ignored
+ [x] Orderby default
+ [x] Orderby single
+ [x] Orderby single invalid
+ [x] Orderby space separated
+ [x] Orderby comma separated
+ [x] Orderby flat array
+ [x] Orderby array contains invalid item
+ [x] Orderby array contains all invalid items
+ [x] Orderby none
+ [x] Orderby empty array
+ [x] Orderby false
+ [x] Orderby array
+ [x] Orderby array should discard invalid columns
+ [x] Orderby array should convert invalid order to DESC
+ [x] Orderby array should sort by comment ID as fallback and should inherit order from comment date gmt
+ [x] Orderby array should sort by comment ID as fallback and should inherit order from comment date
+ [x] Orderby array should sort by comment ID DESC as fallback when not sorted by date
+ [x] Orderby date modified gmt should order by comment ID in case of tie ASC
+ [x] Orderby date modified gmt should order by comment ID in case of tie DESC
+ [x] Meta vars should be converted to meta query
+ [x] Count
+ [x] Count with meta query
+ [x] Paged
+ [x] Offset should take precedence over paged
+ [x] Post type single value
+ [x] Post type singleton array
+ [x] Post type array
+ [x] Post name single value
+ [x] Post name singleton array
+ [x] Post name array
+ [x] Post status single value
+ [x] Post status singleton array
+ [x] Post status array
+ [x] Post type any should override other post types
+ [x] Post type any as part of an array of post types
+ [x] Post status any should override other post statuses
+ [x] Post status any as part of an array of post statuses
+ [x] Comment query object
+ [x] Comment cache key should ignore custom params
+ [x] Cache should be sensitive to parent  in
+ [x] Cache should be sensitive to parent  not in
+ [x] It should be possible to modify meta query using pre get comments action
+ [x] It should be possible to modify meta params using pre get comments action
+ [x] Parent  in
+ [x] Parent  in commas
+ [x] Parent  not in
+ [x] Parent  not in commas
+ [x] Orderby comment  in
+ [x] No found rows should default to true
+ [x] Should respect no found rows true
+ [x] Should respect no found rows false
+ [x] Found rows should be fetched from the cache
+ [x] Hierarchical should skip child comments in offset
+ [x] Hierarchical should not include child comments in number
+ [x] Hierarchical threaded
+ [x] Hierarchical threaded approved
+ [x] Comment clauses prepend callback should be respected when filling descendants
+ [x] Comment clauses append callback should be respected when filling descendants
+ [x] Cache should be hit when querying descendants
+ [x] Hierarchy should be filled when cache is incomplete
+ [x] Fill hierarchy should disregard offset and number
+ [x] Update comment post cache should be disabled by default
+ [x] Should respect update comment post cache true
+ [x] Comment objects should be filled from cache
+ [x] Comment objects should be fetched from database when suspend cache addition
+ [x] Comment query should be cached
+ [x] Created comment should invalidate query cache
+ [x] Updated comment should invalidate query cache
+ [x] Deleted comment should invalidate query cache
+ [x] Trashed comment should invalidate query cache
+ [x] Untrashed comment should invalidate query cache
+ [x] Spammed comment should invalidate query cache
+ [x] Unspammed comment should invalidate query cache
+ [x] Count query should miss noncount cache
+ [x] Count query should hit count cache
+ [x] Different values of fields should share cached values
+ [x] Add comment meta should invalidate query cache
+ [x] Update comment meta should invalidate query cache
+ [x] Delete comment meta should invalidate query cache
+ [x] Comments pre query filter should bypass database query
+ [x] Comments pre query filter should set comments property
+ [x] Comment cache key should ignore unset params
+ [x] Unapproved comment with meta query does not trigger ambiguous identifier error
+
+_Comment_Slashes
+ [x] Wp new comment
+ [x] Edit comment
+ [x] Wp insert comment
+ [x] Wp update comment
+
+_Comment_Template
+ [x] Get comments number
+ [x] Get comments number without arg
+ [x] Get comments number text with post id
+ [x] Get comments number text declension with default args
+ [x] Get comments number text declension with custom args with data set #0
+ [x] Get comments number text declension with custom args with data set #1
+ [x] Get comments number text declension with custom args with data set #2
+ [x] Get comments number text declension with custom args with data set #3
+ [x] Get comments number text declension with custom args with data set #4
+ [x] Get comments number text declension with custom args with data set #5
+ [x] Get comments number text declension with custom args with data set #6
+ [x] Get comments number text declension with custom args with data set #7
+ [x] Get comments number text declension with custom args with data set #8
+ [x] Get comments number text declension with custom args with data set #9
+ [x] Get comments number text declension with custom args with data set #10
+ [x] Get comments number text declension with custom args with data set #11
+
+_Comment_Walker
+ [x] Has children
+
+_Comment_Wp Allow Comment
+ [x] Allow comment if comment author emails differ
+ [x] Die as duplicate if comment author name and emails match
+
+_Comment_wp Batch Update Comment Type
+ [x] wp batch update comment type
+
+_Comment_wp Check Comment Disallowed List
+ [x] Should return true when content matches disallowed keys
+ [x] Should return true when content with html matches disallowed keys
+ [x] Should return true when content with non latin words matches disallowed keys
+ [x] Should return true when author matches disallowed keys
+ [x] Should return true when url matches disallowed keys
+ [x] Should return true when link matches disallowed keys
+ [x] Should return false when no match
+
+_Comment_Wp Comment
+ [x] Get instance should work for numeric string
+ [x] Get instance should fail for negative number
+ [x] Get instance should fail for non numeric string
+ [x] Get instance should succeed for float that is equal to post id
+
+_Comment_wp Comments Personal Data Eraser
+ [x] Wp comments personal data eraser
+ [x] Wp comments personal data eraser empty first page output
+ [x] Wp comments personal data eraser non empty first page output
+ [x] Wp comments personal data eraser empty second page output
+ [x] Wp anonymize comment filter to prevent comment anonymization
+ [x] Wp anonymize comment filter to prevent comment anonymization with custom message
+ [x] Wp comments personal data eraser orders comments by id
+
+_Comment_wp Comments Personal Data Exporter
+ [x] Wp comments personal data exporter
+ [x] Wp comments personal data exporter no comments found
+ [x] Wp comments personal data exporter empty comment prop
+ [x] Wp comments personal data exporter empty second page
+ [x] Wp comments personal data exporter orders comments by id
+
+_Comment_wp Count Comments
+ [x] Wp count comments
+ [x] Wp count comments approved
+ [x] Wp count comments awaiting
+ [x] Wp count comments spam
+ [x] Wp count comments trash
+ [x] Wp count comments post trashed
+ [x] Wp count comments cache
+
+_Comment_wp Handle Comment Submission
+ [x] Submitting comment to invalid post returns error
+ [x] Submitting comment to post with closed comments returns error
+ [x] Submitting comment to trashed post returns error
+ [x] Submitting comment to draft post returns error
+ [x] Submitting comment to draft post returns error message for user with correct caps
+ [x] Submitting comment to scheduled post returns error
+ [x] Submitting comment to password required post returns error
+ [x] Submitting comment to password protected post succeeds
+ [x] Submitting valid comment as logged in user succeeds
+ [x] Submitting valid comment anonymously succeeds
+ [x] Submitting comment handles slashes correctly
+ [x] Submitting comment anonymously to private post returns error
+ [x] Submitting comment as logged in user to inaccessible private post returns error
+ [x] Submitting comment to private post with closed comments returns correct error
+ [x] Submitting comment to own private post succeeds
+ [x] Submitting comment to accessible private post succeeds
+ [x] Anonymous user cannot comment unfiltered html
+ [x] Unprivileged user cannot comment unfiltered html
+ [x] Unprivileged user cannot comment unfiltered html even with valid nonce
+ [x] Privileged user can comment unfiltered html with valid nonce
+ [x] Privileged user cannot comment unfiltered html without valid nonce
+ [x] Submitting comment as anonymous user when registration required returns error
+ [x] Submitting comment with no name when name email required returns error
+ [x] Submitting comment with no email when name email required returns error
+ [x] Submitting comment with invalid email when name email required returns error
+ [x] Submitting comment with no comment content returns error
+ [x] Submitting comment with content too long returns error
+ [x] Submitting comment with author too long returns error
+ [x] Submitting comment with email too long returns error
+ [x] Submitting comment with url too long returns error
+ [x] Submitting comment with empty type results in correct type
+ [x] Inserting comment with empty type results in correct type
+ [x] Comment submission sends all expected parameters to preprocess comment filter
+ [x] Submitting comment without optional parameters sets them to empty strings
+ [x] Submitting duplicate comments
+ [x] Comments flood
+ [x] Comments flood user is admin
+ [x] Should only allow replying to an approved parent comment with data set "an approved parent comment"
+ [x] Should only allow replying to an approved parent comment with data set "an unapproved parent comment"
+ [x] Should only allow replying to an existing parent comment with data set "an existing parent comment"
+ [x] Should only allow replying to an existing parent comment with data set "a non-existent parent comment"
+
+_Comment_Wp List Comments
+ [x] Should respect page param
+ [x] Should respect per page param
+ [x] Should respect reverse top level param
+ [x] Comments param should be respected when custom pagination params are passed
+ [x] Custom pagination should not result in unapproved comments being shown
+ [x] Custom pagination should allow ones own unapproved comments
+
+_Comment_wp Update Comment Count Now
+ [x] Invalid post bails early
+ [x] Regular post updates comment count
+ [x] Using filter adjusts comment count without an additional database query
+
+_Date_Get Comment Date
+ [x] Get comment date returns correct time with comment id
+ [x] Get comment date returns correct time with empty format
+ [x] Get comment time returns correct time
+ [x] Get comment time returns correct time with empty format
+
+_Link_Get Next Comments Link
+ [x] Page should respect value of cpage query var
+ [x] Page should default to 1 when no cpage query var is found
+
+_Link_Get Previous Comments Link
+ [x] Page should respect value of cpage query var
+ [x] Page should default to 1 when no cpage query var is found
+
